@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include "Student.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ void selectionSort(T arr[], int n) {
         // 寻找[i, n)区间里的最小值
         int minIndex = i;
         for(int j = i + 1; j < n; j++)
-            if(arr[j] < arr[i])
+            if(arr[j] < arr[minIndex])
                 minIndex = j;
 
         swap(arr[i], arr[minIndex]);
@@ -38,5 +39,10 @@ int main() {
         cout<<c[i]<<' ';
     cout<<endl;
 
+    Student d[4] = {{"D", 100}, {"C", 90}, {"B", 95}, {"A", 95}};
+    selectionSort(d, 4);
+    for(int i = 0; i < 4; i++)
+        cout<<d[i];
+    cout<<endl;
     return 0;
 }
